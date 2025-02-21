@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrigado!</title>
+    <link rel="stylesheet" href="./webform-mente.css">
+    <script type="text/javascript">
+        async function enviarParaSupabase() {
+            const SUPABASE_URL = process.env.SUPABASE_URL;
+            const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
+            const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm');
+
+            const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+            const { data, error } = await supabase
+                .from('respostas')
+                .insert([
+                    { /* seus dados aqui */ }
+                ]);
+
+            if (error) {
+                console.error('Erro ao enviar dados:', error);
+            } else {
+                console.log('Dados enviados com sucesso:', data);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', enviarParaSupabase);
+    </script>
+</head>
+<body>
+    <div class="centered-text">
+        <h1>Obrigado por enviar suas respostas!</h1>
+        <p>Suas informações foram recebidas com sucesso.</p>
+    </div>
+</body>
+</html>
