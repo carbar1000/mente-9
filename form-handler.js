@@ -1,17 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('myForm');
     if (form) {
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const formData = new FormData(form);
-            const dados = {};
-            formData.forEach((value, key) => {
-                dados[key] = value;
-            });
-            enviarRespostas(dados);
-        });
+        // Remove event listeners existentes para evitar duplicação
+        form.removeEventListener('submit', handleSubmit);
+        form.addEventListener('submit', handleSubmit);
     }
 });
+
+function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const dados = {};
+    formData.forEach((value, key) => {
+        dados[key] = value;
+    });
+    enviarRespostas(dados);
+}
 
 async function enviarRespostas(dados) {
     try {
