@@ -17,11 +17,9 @@
 - O formulário envia os dados para a API `/api/submit`, que insere as respostas na tabela `respostas` do Supabase.
 - Após o envio bem-sucedido, o usuário é redirecionado para a página `obrigado.html`.
 
-## 5. Testes e Deploy
-- Para testar localmente, use o comando:
-  ```powershell
-  vercel dev
-  ```
+## 5.  Deploy
+- 
+
 - Para fazer o deploy da aplicação, use:
   ```powershell
   vercel --prod
@@ -30,3 +28,6 @@
 ## 6. Boas Práticas
 - Sempre que sugerir ou criar código, garantir que as variáveis de ambiente não sejam expostas publicamente.
 - Respeitar o fluxo do formulário e a segurança do projeto.
+
+## 7. O projeto está a ser criando numa plataforma windows , com powershell
+- O projeto está sendo desenvolvido em um ambiente Windows PowerShell.

@@ -1,6 +1,18 @@
+|-- .env.local
+|-- .gitignore
+|-- .vercel
+    |-- project.json
+    |-- README.txt
+|-- api
+    |-- submit.js
+|-- form-handler.js
 |-- index.html
 |-- obrigado.html
+|-- package-lock.json
+|-- package.json
 |-- rules.md
+|-- supabase-config.js
+|-- supabase-server-config.js
 |-- webform-mente-navigate.js
 |-- webform-mente.css
 |-- webform-mente.js

@@ -13,11 +13,13 @@
 
             const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+            // Recupera os dados do formulário do localStorage
+            const formData = JSON.parse(localStorage.getItem('formData'));
+
             const { data, error } = await supabase
                 .from('respostas')
-                .insert([
-                    { /* seus dados aqui */ }
-                ]);
+                .insert([formData]);
+
 
             if (error) {
                 console.error('Erro ao enviar dados:', error);
@@ -26,13 +28,25 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', enviarParaSupabase);
+        // Verifica se há dados no localStorage antes de enviar
+        document.addEventListener('DOMContentLoaded', () => {
+            const formData = localStorage.getItem('formData');
+            if (formData) {
+                enviarParaSupabase();
+                // Limpa os dados após o envio
+                localStorage.removeItem('formData');
+            } else {
+                console.error('Nenhum dado do formulário encontrado');
+            }
+        });
+
     </script>
 </head>
 <body>
     <div class="centered-text">
-        <h1>Obrigado por enviar suas respostas!</h1>
-        <p>Suas informações foram recebidas com sucesso.</p>
+        <h1>Obrigado por enviar suas respostas que você irá fornecer!</h1>
+        <p>Suas informações serão recebidas com sucesso.</p>
+
     </div>
 </body>
 </html>
