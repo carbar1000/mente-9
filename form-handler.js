@@ -2,7 +2,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('myForm');
     if (form) {
         // Remove event listeners existentes para evitar duplicação
-        form.removeEventListener('submit', handleSubmit);
+    // Remove event listeners existentes para evitar duplicação
+    form.removeEventListener('submit', handleSubmit);
+    form.addEventListener('submit', handleSubmit);
+
         form.addEventListener('submit', handleSubmit);
     }
 });

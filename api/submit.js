@@ -46,8 +46,10 @@ export default async function handler(req, res) {
 
             console.log('Dados enviados com sucesso:', data);
             
+            return res.status(200).json({
                 success: true,
                 data: data 
+
             });
 
         } catch (error) {
