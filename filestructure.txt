@@ -1,4 +1,3 @@
-|-- .env.local
 |-- .gitignore
 |-- .vercel
     |-- project.json
@@ -10,6 +9,7 @@
 |-- obrigado.html
 |-- package-lock.json
 |-- package.json
+|-- README.md
 |-- rules.md
 |-- supabase-config.js
 |-- supabase-server-config.js

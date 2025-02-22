@@ -6,39 +6,15 @@
     <title>Obrigado!</title>
     <link rel="stylesheet" href="./webform-mente.css">
     <script type="text/javascript">
-        async function enviarParaSupabase() {
-            const SUPABASE_URL = process.env.SUPABASE_URL;
-            const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
-            const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm');
-
-            const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-            // Recupera os dados do formulário do localStorage
-            const formData = JSON.parse(localStorage.getItem('formData'));
-
-            const { data, error } = await supabase
-                .from('respostas')
-                .insert([formData]);
-
-
-            if (error) {
-                console.error('Erro ao enviar dados:', error);
-            } else {
-                console.log('Dados enviados com sucesso:', data);
-            }
-        }
-
-        // Verifica se há dados no localStorage antes de enviar
+        // Verifica se há dados no localStorage
         document.addEventListener('DOMContentLoaded', () => {
             const formData = localStorage.getItem('formData');
             if (formData) {
-                enviarParaSupabase();
                 // Limpa os dados após o envio
                 localStorage.removeItem('formData');
-            } else {
-                console.error('Nenhum dado do formulário encontrado');
             }
         });
+
 
     </script>
 </head>
