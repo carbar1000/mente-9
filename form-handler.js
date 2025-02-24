@@ -7,11 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Remove event listeners existentes para evitar duplicação
         form.removeEventListener('submit', handleSubmit);
         form.addEventListener('submit', handleSubmit);
-        
-        // Adiciona evento de input para ocultar a mensagem de aviso
-        nomeInput.addEventListener('input', function() {
-            nomeWarning.classList.add('hidden');
-        });
     }
 });
 
@@ -29,8 +24,6 @@ function handleSubmit(event) {
     if (!nomeInput.checkValidity()) {
         nomeWarning.classList.remove('hidden');
         return;
-    } else {
-        nomeWarning.classList.add('hidden');
     }
 
     enviarRespostas(dados);
