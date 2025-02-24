@@ -21,11 +21,6 @@ function handleSubmit(event) {
     const nomeInput = document.getElementById('nome');
     const nomeWarning = document.getElementById('nome-warning');
 
-    if (!nomeInput.checkValidity()) {
-        nomeWarning.classList.remove('hidden');
-        return;
-    }
-
     enviarRespostas(dados);
 }
 
