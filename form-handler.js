@@ -4,11 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const nomeWarning = document.getElementById('nome-warning');
 
     if (form) {
-        // Remove event listeners existentes para evitar duplicação
+        // Remove event listeners existentes para evitar duplicação e adiciona o novo
         form.removeEventListener('submit', handleSubmit);
         form.addEventListener('submit', handleSubmit);
-    }
-});
+      }
+    });
 
 function handleSubmit(event) {
     event.preventDefault();
