@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('myForm');
+    const nomeInput = document.getElementById('nome');
+    const nomeWarning = document.getElementById('nome-warning');
+
     if (form) {
         // Remove event listeners existentes para evitar duplicação
-    // Remove event listeners existentes para evitar duplicação
-    form.removeEventListener('submit', handleSubmit);
-    form.addEventListener('submit', handleSubmit);
-
+        form.removeEventListener('submit', handleSubmit);
         form.addEventListener('submit', handleSubmit);
     }
 });
@@ -17,6 +17,17 @@ function handleSubmit(event) {
     formData.forEach((value, key) => {
         dados[key] = value;
     });
+
+    const nomeInput = document.getElementById('nome');
+    const nomeWarning = document.getElementById('nome-warning');
+
+    if (!nomeInput.checkValidity()) {
+        nomeWarning.classList.remove('hidden');
+        return;
+    } else {
+        nomeWarning.classList.add('hidden');
+    }
+
     enviarRespostas(dados);
 }
 
