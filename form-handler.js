@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Remove event listeners existentes para evitar duplicação e adiciona o novo
         form.removeEventListener('submit', handleSubmit);
         form.addEventListener('submit', handleSubmit);
-      }
-    });
+    }
+});
 
 function handleSubmit(event) {
     event.preventDefault();
@@ -43,3 +43,15 @@ async function enviarRespostas(dados) {
         console.error('Erro ao enviar as respostas:', error);
     }
 }
+
+// Supondo que você já tenha configurado o Supabase no seu projeto
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// Escutando por novas respostas sendo inseridas na tabela 'respostas'
+supabase
+  .from('respostas')
+  .on('INSERT', payload => {
+    console.log('Nova resposta inserida:', payload.new);
+    // Aqui, você pode atualizar o frontend, como adicionar a nova resposta na interface
+  })
+  .subscribe();
